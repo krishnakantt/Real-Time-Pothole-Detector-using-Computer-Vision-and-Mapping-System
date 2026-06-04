@@ -1,0 +1,38 @@
+# Frontend Requirements & Setup Instructions
+
+Since this is a React/Node.js project, it does not use a Python `requirements.txt` for its dependencies. Instead, all frontend dependencies are already safely tracked inside the `package.json` file. 
+
+To give this code to someone else so they can connect it to the backend, they just need to follow these 3 simple steps:
+
+### 1. Prerequisites
+Make sure Node.js (version 18+ recommended) is installed on the computer.
+
+### 2. Install Dependencies
+Open a terminal in this frontend directory and run:
+npm install
+
+This automatically reads `package.json` and installs everything needed, including:
+- react
+- react-dom
+- leaflet
+- react-leaflet
+- react-leaflet-cluster
+- axios
+- lucide-react
+
+### 3. Start the Application
+To run the server locally:
+npm run dev
+
+---
+### 🔗 Backend Connection Setup
+The frontend is already configured to automatically point to your Django backend and WebSockets.
+If your backend is running on a different port/IP in the future, the person using this code only needs to update these two files:
+
+1. **REST API Base URL:**
+   Open `src/services/api.js` and edit:
+   const API_BASE_URL = 'http://127.0.0.1:8000/';
+
+2. **WebSocket URL:**
+   Open `src/services/socket.js` and edit:
+   this.url = 'ws://localhost:8000/ws/potholes/';
